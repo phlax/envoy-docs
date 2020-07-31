@@ -1,0 +1,14 @@
+#
+
+version: "2.4"
+services:
+
+  envoy-docs:
+    build:
+      context: ../context
+    ulimits:
+      stack: -1
+    environment:
+      - ENVOY_REPO
+    volumes:
+      - ${PWD}/docs:/mnt/docs
