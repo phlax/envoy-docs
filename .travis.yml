@@ -2,12 +2,7 @@
 
 dist: bionic
 
-cache:
-  directories:
-    - /home/travis/build/phlax/envoy-docs/build
-
 script:
-  # - ls -alh build/tmp
   - export COMPOSE_FILE=./composition/docker-compose.yml
   - docker-compose pull envoy-docs
   - docker images
