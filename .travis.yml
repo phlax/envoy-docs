@@ -7,5 +7,5 @@ script:
 
   - docker pull phlax/envoy-build
   - mkdir envoy/generated
-  - chmod go+rx envoy/generated
+  - chmod go+rwx envoy/generated
   - docker run -e ENVOY_SRCDIR=/source/envoy -v $(pwd)/envoy:/source/envoy --rm phlax/envoy-build
