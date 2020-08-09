@@ -2,23 +2,7 @@
 
 dist: bionic
 
-env:
-  jobs:
-    - ENVOY_REPO="-b docs-updates-and-cleanups--build https://github.com/phlax/envoy"
-
 script:
-  - export COMPOSE_FILE=./composition/docker-compose.yml
-  - docker-compose build envoy-docs
-  - docker images
-  - docker-compose run --rm envoy-docs build-docs.sh
-
-before_deploy:
-  - echo $DOCKER_ACCESS_TOKEN | docker login -u phlax --password-stdin
-
-deploy:
-  provider: script
-  script: docker push phlax/envoy-docs
-  skip_cleanup: true
-  on:
-    all_branches: true
-    condition: $TRAVIS_BRANCH =~ ^(master)$
+  - git clone https://github.com/envoyproxy/envoy
+  - cd envoy
+  - ./ci/do_ci.sh docs
