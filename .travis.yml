@@ -9,3 +9,8 @@ script:
   - ci/run_envoy_docker.sh 'ci/do_ci.sh docs'
   - ci/run_envoy_docker.sh 'ci/do_ci.sh docs'
   - ci/run_envoy_docker.sh 'ci/do_ci.sh docs'
+
+  - docker pull phlax/envoy-build
+  - docker run --rm phlax/envoy-build
+  - docker run --rm phlax/envoy-build
+  - docker run --rm phlax/envoy-build
