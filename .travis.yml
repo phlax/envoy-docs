@@ -6,4 +6,4 @@ script:
   - git clone https://github.com/envoyproxy/envoy
 
   - docker pull phlax/envoy-build
-  - docker run -v $(pwd)/envoy:/source/envoy --rm phlax/envoy-build
+  - docker run -e ENVOY_SRCDIR=/source/envoy -v $(pwd)/envoy:/source/envoy --rm phlax/envoy-build
