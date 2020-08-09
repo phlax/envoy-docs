@@ -5,5 +5,4 @@ dist: bionic
 script:
   - git clone https://github.com/envoyproxy/envoy
   - cd envoy
-  - mkdir /build
-  - ./ci/do_ci.sh docs
+  - ci/run_envoy_docker.sh 'ci/do_ci.sh docs'
