@@ -7,4 +7,5 @@ script:
 
   - docker pull phlax/envoy-build
   - mkdir envoy/generated
-  - docker run -u root -e ENVOY_SRCDIR=/source/envoy -v $(pwd)/envoy:/source/envoy --rm phlax/envoy-build
+#  - docker run -u root -e ENVOY_SRCDIR=/source/envoy -v $(pwd)/envoy:/source/envoy --rm phlax/envoy-build
+  - docker run --rm phlax/envoy-build bash -c "time build-docs.sh && time build-docs.sh && time build-docs.sh"
