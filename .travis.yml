@@ -4,10 +4,11 @@ dist: bionic
 
 script:
   - git clone https://github.com/envoyproxy/envoy
+  - ./ci/run_envoy_docker.sh 'ci/do_ci.sh docs'
 
-  - docker pull phlax/envoy-build
+  # - docker pull phlax/envoy-build
   # - mkdir envoy/generated
-  - docker run -u root -e ENVOY_SRCDIR=/source/envoy -v $(pwd)/envoy:/source/envoy --rm phlax/envoy-build
-  - ls envoy/generated
+  # - docker run -u root -e ENVOY_SRCDIR=/source/envoy -v $(pwd)/envoy:/source/envoy --rm phlax/envoy-build
+  # - ls envoy/generated
 
   # - docker run -e NUM_CPUS=6 --rm phlax/envoy-build bash -c "time ci/do_ci.sh docs && time ci/do_ci.sh docs && time ci/do_ci.sh docs"
